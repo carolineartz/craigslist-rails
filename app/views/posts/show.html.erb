@@ -1,0 +1,23 @@
+<div class="row">
+<div class="large-12 columns">
+<h1><%=@post.title %></h1>
+</div>
+</div>
+
+
+<div class="row">
+    <div class="large-6 small-12 columns">
+        <p>Description: <%= @post.description %></p>
+        <div>Contact: <%= @post.owner %> at <%= @post.email %></div>
+        <div>Price: <%= number_to_currency @post.price %></div>
+    </div>
+
+    <div class="large-6 small-12 columns">
+<!--         <h6><#%= link_to "Return to Category #{@post.category.name}", category_path(@post.category) %></h6> -->
+        <div><%= link_to "All Posts", posts_path, class: 'small button' %></div>
+        <div><%= link_to "Edit", edit_post_path(@post), class: 'small button success' %></div>
+        <div><%= link_to "Delete", post_path(@post), class: 'small button alert', method: :delete %></div>
+    </div>
+</div>
+
+

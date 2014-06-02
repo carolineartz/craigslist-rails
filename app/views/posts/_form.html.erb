@@ -1,0 +1,22 @@
+
+<%= form_for(@post) do |f| %>
+  <ul>
+    <% @post.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+  <%= f.label :description%>
+  <%= f.text_area :description %><br>
+  <%= f.label :owner%>
+  <%= f.text_field :owner %><br>
+  <%= f.label :email%>
+  <%= f.text_field :email %><br>
+  <%= f.label :price%>
+  <%= f.number_field :price %><br>
+  <%= f.label :category_id%>
+  <%= f.select :category_id, Category.all.map { |c| [c.name, c.id] }, { include_blank: '-'} %>
+  <%= f.submit class: 'button' %>
+
+<% end %>
